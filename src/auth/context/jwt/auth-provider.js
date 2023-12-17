@@ -101,23 +101,26 @@ export function AuthProvider({ children }) {
 
   // LOGIN
   const login = useCallback(async (email, password) => {
+    // 提取 @ 之前的文字
+    const identifier = email.split('@')[0];
+
     const data = {
-      email,
+      identifier,
       password,
     };
 
-    const response = await axios.post(endpoints.auth.login, data);
+    const response = await axios.post('https://interview.m-inno.com/api/auth/local', data);
 
-    const { accessToken, user } = response.data;
+    const { jwt, user } = response.data;
 
-    setSession(accessToken);
+    setSession(jwt);
 
     dispatch({
       type: 'LOGIN',
       payload: {
         user: {
           ...user,
-          accessToken,
+          jwt,
         },
       },
     });
