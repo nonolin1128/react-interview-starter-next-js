@@ -44,8 +44,8 @@ export default function JwtLoginView() {
   });
 
   const defaultValues = {
-    email: 'in008@omniway.com.tw',
-    password: 'Y38ISyOtUWerZxX',
+    email: 'demo@minimals.cc',
+    password: 'demo1234',
   };
 
   const methods = useForm({
