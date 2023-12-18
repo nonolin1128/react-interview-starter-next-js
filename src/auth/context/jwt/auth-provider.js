@@ -101,7 +101,7 @@ export function AuthProvider({ children }) {
 
   // LOGIN
   const login = useCallback(async (email, password) => {
-    // 提取 @ 之前的文字
+    // 提取登入email在 @ 之前的文字
     const identifier = email.split('@')[0];
 
     const data = {
